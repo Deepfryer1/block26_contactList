@@ -1,24 +1,28 @@
-import { useState } from 'react'
+import  ContactList  from './components/ContactList'
 import './App.css'
+import { useState } from "react";
+import ContactRow from './components/ContactRow';
 
-// function App() {
-//   const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
+function App() {
+  const [selectedContactId, setSelectedContactId] = useState(null);
+    return (
+      <>
+        {selectedContactId ? (
+          <>
+         <div>Selected Contact View</div>
+         
+         <a href="/">Back</a>
+  
+         </>
+       ) : (
+         <ContactList setSelectedContactId={setSelectedContactId}/>
+        )}
+    
+      </>
+    );
+  }
 
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-      
-      </p>
-    </>
-  )
-}
+ 
 
 export default App
